@@ -50,3 +50,13 @@ public class HillCipher {
         scanner.close();
     }
 }
+
+OUTPUT:
+=== HILL CIPHER SYSTEM ===
+Enter secret message (Letters only): HELLOWORLD
+
+--- CONFIDENTIALITY REPORT ---
+Original Input   : HELLOWORLD
+Encrypted Cipher : HIOZEIPJQL
+Decrypted Check  : HELLOWORLD
+
