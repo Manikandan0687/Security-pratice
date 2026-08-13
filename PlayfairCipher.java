@@ -77,3 +77,13 @@ public class PlayfairCipher {
         scanner.close();
     }
 }
+
+OUTPUT:
+student@a4cse177:~$ javac PlayfairCipher.java
+student@a4cse177:~$ java PlayfairCipher
+=== PLAYFAIR CIPHER ===
+Key: 3
+Message: HELLO
+
+Encrypted: KCNVMP
+Decrypted: HELXLO
