@@ -1,51 +1,45 @@
-import java.util.Scanner;
-
-public class VigenereCipher {
-
-    public static String processVigenere(String text, String key, boolean encrypt) {
-        StringBuilder result = new StringBuilder();
-        int keyLen = key.length();
-        
-        for (int i = 0; i < text.length(); i++) {
-            char textChar = text.charAt(i);
-            char keyChar = key.charAt(i % keyLen);
-            
-            int textVal = textChar - 32;
-            int keyVal = keyChar - 32;
-            
-            int finalVal;
-            if (encrypt) {
-                finalVal = (textVal + keyVal) % 95;
-            } else {
-                finalVal = (textVal - keyVal + 95) % 95;
-            }
-            
-            result.append((char) (finalVal + 32));
-        }
-        return result.toString();
-    }
-
+public class SimpleVigenere {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        String plaintext = "EAT APPLE";
+        String keyword = "KEY";
+
+       
+        String cleanText = plaintext.replace(" ", "").toUpperCase();
+        String upperKey = keyword.toUpperCase();
+
+        StringBuilder ciphertext = new StringBuilder();
+        int keyIndex = 0;
+
+        System.out.println("Plaintext:  " + plaintext);
+        System.out.println("Keyword:    " + keyword);
+        System.out.print("Ciphertext: ");
+
         
-        System.out.println("=== ELITE VIGENERE SYSTEM ===");
-        System.out.print("Enter secret message: ");
-        String message = scanner.nextLine();
+        for (int i = 0; i < cleanText.length(); i++) {
+            char pChar = cleanText.charAt(i);
+
+            
+            if (Character.isLetter(pChar)) {
+                char kChar = upperKey.charAt(keyIndex % upperKey.length());
+                
+                
+                int shift = kChar - 'A';
+                char encryptedChar = (char) ((pChar - 'A' + shift) % 26 + 'A');
+
+                ciphertext.append(encryptedChar);
+                keyIndex++; // Move to the next letter in the keyword
+            }
+        }
+
         
-        System.out.print("Enter secret key word: ");
-        String key = scanner.nextLine();
-        
-        if (key.isEmpty()) key = "DEFAULT";
-        
-        String encrypted = processVigenere(message, key, true);
-        String decrypted = processVigenere(encrypted, key, false);
-        
-        System.out.println("\n--- CONFIDENTIALITY REPORT ---");
-        System.out.println("Original Input   : " + message);
-        System.out.println("Encrypted Cipher : " + encrypted);
-        System.out.println("Decrypted Check  : " + decrypted);
-        System.out.println();
-        
-        scanner.close();
+        System.out.println(ciphertext.toString());
     }
 }
+
+
+OUTPUT:
+student@a4cse177:~$ javac SimpleVigenere.java
+student@a4cse177:~$ java SimpleVigenere
+Plaintext:  EAT APPLE
+Keyword:    KEY
+Ciphertext: OERKTNVI
