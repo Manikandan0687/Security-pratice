@@ -77,3 +77,15 @@ public class ShiftCipher {
         scanner.close();
     }
 }
+
+OUTPUT:
+student@a4cse177:~$ javac ShiftCipher.java
+student@a4cse177:~$ java ShiftCipher
+=== Caesar/Shift Cipher Program ===
+Enter your secret message: HELLO
+Enter shift key (e.g., 3 for Caesar): 3
+
+=== Output ===
+Original  : HELLO
+Encrypted : KHOOR
+Decrypted : HELLO
