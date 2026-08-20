@@ -38,3 +38,8 @@ class RailFence {
         System.out.println("Encrypted: " + encrypt(text, rails));
     }
 }
+OUTPUT:
+student@a4cse178:~$ java RailFence.java
+Enter text: Helloworld 
+Enter rails: 3
+Encrypted: Holelwrdlo
