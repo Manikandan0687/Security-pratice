@@ -30,3 +30,9 @@ class RowColumnar {
         System.out.println("Encrypted: " + enc);
     }
 }
+OUTPUT:
+student@a4cse178:~$ javac RowColumnar.java
+student@a4cse178:~$ java RowColumnar
+Enter text: Helloworld   
+Enter key: abc
+Encrypted: HLODEORXLWLX
